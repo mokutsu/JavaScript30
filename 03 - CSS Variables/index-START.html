@@ -1,3 +1,4 @@
+<!-- learning: css variables, js dataset, element.style.setProperty(property, val) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +26,19 @@
     /*
       misc styles, nothing to do with CSS variables
     */
+    :root {
+      --base: #ffc800;
+      --blur: 10px;
+      --padding: 20px;
+    }
+    img {
+      padding: var(--padding);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+    .hl {
+      color: var(--base);
+    }
 
     body {
       text-align: center;
@@ -45,6 +59,15 @@
   </style>
 
   <script>
+    const inputs = document.querySelectorAll('.controls input');
+    function handleUpdate() {
+      const sizing = this.dataset.sizing || '';
+      document.documentElement.style.setProperty(`--${this.name}`, this.value + sizing);
+    }
+    inputs.forEach(input => {
+      input.addEventListener('change', handleUpdate);
+      input.addEventListener('mousemove', handleUpdate);
+    });
   </script>
 
 </body>
