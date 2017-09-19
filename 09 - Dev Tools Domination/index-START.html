@@ -18,29 +18,44 @@
     }
 
     // Regular
-
+    console.log('hello');
     // Interpolated
-
+    console.log('hello i am a %s', 32442)
     // Styled
-
+    console.log('%c hello i am a some great text!', 'font-size:25px;color:pink;')
     // warning!
-
+    console.warn('this is just a warning!');
     // Error :|
-
+    console.error('A MISTAKE!  DUH DUH DUHHHH')
     // Info
-
-    // Testing
-
+    console.info('FYI: did you know...')
+    // Testing - only shows something if it is wrong
+    console.assert(1==1, 'this is incorrect');
+    console.assert(2==1, 'this is incorrect');
     // clearing
-
-    // Viewing DOM Elements
-
+    console.clear();
+    // Viewing DOM Elements - see element methods and attributes like python dir! :D
+    const p = document.querySelector('p');
+    console.dir(p)
     // Grouping together
-
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);s
+      console.groupEnd(`${dog.name}`)
+    })
+    x
     // counting
-
+    console.log('hey hey hey');
+    console.count('hey');
     // timing
+    console.time('fetch data');
+    fetch('https://api.github.com/users/wesbos');
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      })
 
+    console.table(dogs)
   </script>
 </body>
 </html>
